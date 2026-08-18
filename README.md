@@ -25,13 +25,19 @@ dsh-preset-router-standard/
 
 ## 安装
 
-将本目录复制到 DSH 的 agent-presets 目录，然后重启 DSH 并在新会话中选择该预设：
+在仓库根目录（`README.md` 所在目录）执行：
 
 ```bash
-cp -r .agent-presets/dsh-preset-router-standard ~/.dsh/.agent-presets/dsh-preset-router-standard
+# 确保 DSH 的 agent-presets 目录存在
+mkdir -p ~/.dsh/.agent-presets
+
+# 将整个 preset 复制过去
+cp -R . ~/.dsh/.agent-presets/dsh-preset-router-standard
 ```
 
-> 如果已经位于 `~/.dsh/.agent-presets/` 下，复制到其他机器时保持目录名唯一即可。
+然后重启 DSH，并在新会话中选择 **Router Standard** 预设。
+
+> 如果你已经把它放在 `~/.dsh/.agent-presets/` 下（例如当前开发环境），则无需重复安装；复制到其他机器时保持目录名 `dsh-preset-router-standard` 唯一即可。
 
 ## 使用
 
