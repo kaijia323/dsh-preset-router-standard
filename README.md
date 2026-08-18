@@ -4,6 +4,18 @@ DeepSeek Harness（DSH）Agent Preset：任务感知思维模式路由（router-
 
 本 preset 的 dsh preset 模式参考了 [dsh-routing-suite](https://github.com/yjh051108/dsh-routing-suite)（MIT）的设计，并移植了其中的 `router-standard` 路由思路：根据首条真实用户消息在 `spec`（计划优先）/ `weak`（模型内路由）/ `react`（执行者）行为带之间路由，并在首轮注入匹配的 persona 与核心工具面。
 
+## 两种 preset 模式
+
+本仓库与 [dsh-preset-router-ptc](https://github.com/kaijia323/dsh-preset-router-ptc) 是同一套任务感知路由思路的两种 DSH preset 模式：
+
+| 模式 | 仓库 | 首个工具调用后的工具面 |
+| --- | --- | --- |
+| **Router Standard（本 preset）** | [dsh-preset-router-standard](https://github.com/kaijia323/dsh-preset-router-standard) | 开放完整 Standard 原生工具集 |
+| **PTC RunCode（PTC 分支）** | [dsh-preset-router-ptc](https://github.com/kaijia323/dsh-preset-router-ptc) | 切换到 DSH 内置 PTC/run_code（Code Mode）单一入口 |
+
+- **Router Standard**：任务感知路由 + RL 接口还原；首个持久工具调用后开放完整 Standard 工具集。
+- **PTC RunCode**：保留 Router Standard 的首轮路由与 RL 接口，首个持久工具调用后改为 `agent.ctx.tools.presentAs('code')` 切换为 PTC/run_code（Code Mode）单一入口，system 保持短 prompt（persona + 协作口吻）。
+
 ## 特性
 
 - **任务感知路由**：首条真实用户消息按关键词证据分类为 `spec` / `react`；模糊或未匹配文本进入 `weak`，由模型按任务自行决定。
