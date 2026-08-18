@@ -1,0 +1,2 @@
+name: Router Standard（任务感知路由）
+description: 移植自 dsh-routing-suite/router-standard：任务感知思维模式路由（RL 接口还原）。首条用户消息分类为 spec（计划优先）/ weak（模型内路由）/ react（执行者）行为带，首轮注入匹配 persona 与核心工具面（一句话 persona + shell/str_replace_editor，think-act 反馈循环）；首个工具调用后开放完整 Standard 工具集；weak 带深度自适应的近场引导；内置 dev_router_status / dev_router_mode / dev_mode_subagent 自我优化。
